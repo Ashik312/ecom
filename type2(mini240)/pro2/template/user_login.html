@@ -1,0 +1,21 @@
+{% extends 'home.html' %}
+{% block body_block %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-lg">
+            <h2>Login</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eos voluptates natus, alias hic distinctio fugiat molestias, ipsa dignissimos perferendis eum vitae facilis possimus ratione, illum nulla aut facere. Eos necessitatibus sint repellat aperiam.</p>
+            <form method="POST">
+                {% csrf_token %}
+                <label for=""> UserName</label><br>
+                <input type="text"  name="username"><br><br>
+
+                <label for="">Confirm Password</label><br>
+                <input type="text" name="password"><br><br>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

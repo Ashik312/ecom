@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+              About
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Services</a>
+                <a class="dropdown-item" href="#">visit</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Help</a>
+              </div>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'user_signup' %}">Sign-Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_login' %}">Login</a>
+              </li>
+              {% endif %}
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+      {% block body_block %}
+
+      <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg">
+                <h1>Hello {{user.username}}</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet quibusdam earum fuga doloribus, fugiat consequuntur aperiam provident expedita ab, nobis inventore voluptate corporis molestias molestiae eos iusto, a ea ipsam eligendi rem culpa dolor quis. Beatae, reprehenderit. Dolorem unde modi doloribus sunt, nihil neque aspernatur consectetur et! Deleniti inventore quae, impedit voluptatem, consectetur ab distinctio quia, tenetur corrupti tempore natus voluptate mollitia et animi porro quos cum iste expedita? Nesciunt blanditiis autem, molestias deleniti voluptatem cum, recusandae obcaecati iure tenetur earum accusamus distinctio nostrum? Non harum unde dolor officia numquam tempora, minima nesciunt. Excepturi exercitationem tenetur voluptate velit mollitia odio ullam suscipit, optio natus. Similique dolorum architecto consequatur assumenda deserunt magni eum, excepturi enim dolor ducimus officia voluptas, debitis earum alias dolore qui? Ex voluptates neque qui, pariatur laborum voluptas suscipit consequatur tempora facilis impedit, animi consectetur numquam magnam eos hic architecto earum explicabo itaque sit natus. Odio ratione dicta quaerat aliquid neque nulla nesciunt voluptas itaque impedit, soluta voluptatibus nam adipisci dolorum qui quam enim doloremque. Debitis, praesentium cumque impedit corrupti nisi quisquam ex. Distinctio, nulla quis consectetur iure dignissimos magni veniam quae provident earum, mollitia architecto accusamus ullam rem sit? Ut commodi tempora enim fuga quas placeat adipisci, modi at dolore provident neque hic dolorem iure, facere dicta ullam exercitationem sequi quo libero! Reiciendis consequatur nobis rerum commodi! Nemo atque distinctio magni doloribus suscipit tempore possimus molestiae aliquam ut itaque quia maxime, earum quam delectus quod odio autem sequi. Cupiditate doloremque placeat atque iure nulla, quos reprehenderit aut quibusdam minima itaque, a dolorum nemo facere nobis voluptates ab aperiam ea, et harum deleniti. Eligendi quibusdam suscipit qui iusto perferendis at accusantium, sunt, ea magnam repellat reprehenderit voluptas unde animi aliquid expedita, consectetur quasi vitae! Ut eveniet laborum quia minus sapiente totam quisquam, temporibus ea deleniti dolor numquam ad impedit nobis sunt recusandae. Tempora, alias vel nostrum, beatae impedit reprehenderit voluptas labore sit libero aliquam iure aspernatur harum dignissimos quo consequuntur temporibus commodi error a quas! Explicabo, quibusdam suscipit. Quaerat dolorem deserunt voluptatum tenetur! Accusamus nihil ipsum inventore officia nemo dolorem repellat optio voluptatum.</p>
+            </div>
+        </div>
+      </div>
+      {% endblock %}
+  
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+</body>
+</html>
