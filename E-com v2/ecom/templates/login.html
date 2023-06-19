@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+{% block body_block %}
+<div class="log_con">
+    <div class="row">
+        <div class="col-lg-4 sqr_con">
+            <div class="sqr">
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="name" class="logInp1" placeholder="Username"><br>
+                    <input type="password" name="password" class="logInp2" placeholder="Password"><br>
+                    <input type="submit" value="Login" class="logInp3"><br>
+                    <a class="logfor" href="{% url 'password_reset' %}">forgot password</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
